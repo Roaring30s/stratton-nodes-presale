@@ -1,0 +1,1 @@
+export const toHex = (num) => '0x'+num.toString(16);
