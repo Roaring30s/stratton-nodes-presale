@@ -41,7 +41,7 @@ export default function Navigation(props) {
       <div className="flex justify-between items-center p-2">
         <div className="flex justify-between w-full">
           <Image
-            src="/logo-with-text.svg"
+            src="static/img/logo-with-text.svg"
             alt="Stratton Nodes Logo"
             width="317"
             height="55"
@@ -70,7 +70,7 @@ export default function Navigation(props) {
           >
             <div className="mr-1 mt-1">
               <Image
-                src="/logo.svg"
+                src="static/img/logo.svg"
                 alt="Stratton Logo"
                 width="20"
                 height="20"
