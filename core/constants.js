@@ -1,8 +1,3 @@
-// Logging
-export const SENTRY_DSN =
-    "https://bb9f9dca03a6417dadcd129b9a5a5b9b@o1149801.ingest.sentry.io/6222220";
-export const SENTRY_TRACE_SAMPLE_RATE = 0.3;
-
 export const CHAIN = {
     name: "Avalanche Fuji Testnet",
     chain: "AVAX",

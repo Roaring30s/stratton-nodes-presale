@@ -57,16 +57,11 @@ const calculatePresaleStatus = () => {
 };
 
 const handleDisconnect = () => {
-  // TODO: Implement me
   console.log("disconnect clicked");
-  //Sebastian
 };
 
 export default function Index() {
 
-  const address = '0x5B7692f2ea5653F4e4EEc8697dD4D7B2532B2F4a';
-  const onboarding = useRef();
-  const [networkStatus, setNetworkStatus] = useState("Switch Network");
   const [showNavigation, setShowNavigation] = useState(false);
   const [presaleStatus, setPresaleStatus] = useState({
     state: {
