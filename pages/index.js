@@ -8,12 +8,7 @@ import Presale from "../components/Presale";
 import Countdown from "../components/Countdown";
 import Community from "../components/Community";
 import "@fontsource/plus-jakarta-sans";
-
-import { loadWeb3, handleNetworkSwitch } from "../util/web3/web3";
-import Web3 from "web3";
-import modifyWalletAddr from "../util/web3/helpers";
 import { MetamaskProvider } from "../util/metamask/MetamaskProvider";
-import { AccountBoxSharp, ConnectingAirportsOutlined } from "@mui/icons-material";
 
 const presaleStartConfig = new Date(process.env.presaleStart);
 const presaleEndConfig = new Date(process.env.presaleEnd);
@@ -141,7 +136,6 @@ export default function Index() {
           </footer>
         </ThemeProvider>
       </MetamaskProvider>
-      
     </div>
   );
 }

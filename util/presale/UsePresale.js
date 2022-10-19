@@ -45,7 +45,9 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
     useEffect(() => {
         setIsInitialized(false);
         if (status !== 'connected' || chainId !== toHex(CHAIN.chainId)) { return; }
-
+        /**
+         * Determine if presale contract is paused
+         */
         const fetchContractStatus = async () => {
             const contractPaused = await presaleContract
                 .contractPaused();
@@ -60,21 +62,27 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
 
             setIsAvailable(!contractPaused && !ended && !!started);
         }
-
+        /**
+         * Determine if DAI is approved
+         */
         const fetchApproveStatus = async () => {
             const response = await daiContract
                 .allowance(account, presaleAddress);
 
             setRequireApprove(response <= 0);
         };
-
+        /**
+         * Fetch remaining allocation to purchase PBWD
+         */
         const fetchUserRemainingAllocation = async () => {
             const response = await presaleContract
                 .getUserRemainingAllocation(account);
 
             setUserRemainingAllocation(response / Math.pow(10, 18));
         }
-
+        /**
+         * Fetch total minted supply of PBWD
+         */
         const fetchTotalSupply = async () => {
             const mintedSupply = await pbwdContract
                 .totalSupply();
@@ -83,9 +91,10 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
 
             setTotalSupply(parseSupply);
 
-            //COME BACK TO ME
         }
-
+        /**
+         * Fetch total amount of DAI raised
+         */
         const fetchTotalRaised = async () => {
             const response = await presaleContract
                 .totalRaisedDAI();
@@ -108,7 +117,9 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
         initialize();
     }, [status, account, chainId, presaleAddress]);
 
-
+    /**
+     * Request max approval on DAI contract
+     */
     const approveSpending = useCallback(async () => {
         try {
             setLoadButton(true);
@@ -122,6 +133,9 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
 
     }, [account, presaleAddress, daiAddress]);
 
+    /**
+     * Fetch EOA balance of PBWD
+     */
     const retrievepBWDBalance = useCallback(async () => {
         const signerAddress = await provider.getSigner().getAddress();
         const bigNumBalance = await pbwdContract.balanceOf(signerAddress);
@@ -129,6 +143,9 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
         setPBWDBalance(userTokenBalance);
     }, [account, totalRaisedDAI]);
 
+    /**
+     * Fetch EOA Dai balance
+     */
     const retrieveDaiBalance = useCallback(async () => {
         const signerAddress = await provider.getSigner().getAddress();
         const bigNumBalance = await daiContract.balanceOf(signerAddress);
@@ -136,6 +153,10 @@ export const usePresale = ({ presaleInterface, presaleAddress, daiInterface, dai
         setDaiBalance(userTokenBalance);
     }, [account, totalRaisedDAI]);
 
+    /**
+     * Deposit DAI into smart contract
+     * @param {number} amount - DAI amount
+     */
     const deposit = useCallback(async (amount) => {
         try {
             setLoadButton(true);

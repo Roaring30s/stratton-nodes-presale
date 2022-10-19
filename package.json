@@ -20,12 +20,13 @@
     "@sentry/nextjs": "^6.17.9",
     "clsx": "^1.1.1",
     "ethers": "^5.5.4",
-    "next": "12.0.10",
+    "next": "^12.3.1",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-jazzicon": "^1.0.3",
     "storybook": "^6.4.19",
-    "web3": "^1.7.0"
+    "web3": "^1.7.0",
+    "webpack": "^5.74.0"
   },
   "devDependencies": {
     "@sentry/cli": "^1.72.2",

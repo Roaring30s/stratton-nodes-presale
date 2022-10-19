@@ -87,4 +87,3 @@ export default function Presale({ presaleStarted, presaleEnded }) {
     </div>
   );
 }
-//#4646B2

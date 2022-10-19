@@ -38,9 +38,9 @@ export default function SuccessAlerBox(props) {
         }}
       >
         <Fade in={open}>
-          <Box 
+          <Box
             sx={style}
-            
+
           >
             <Typography id="transition-modal-title" variant="h6" component="h2">
               {props.title}

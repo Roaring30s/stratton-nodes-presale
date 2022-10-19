@@ -1,6 +1,10 @@
 import React from "react";
 import CountdownNumber from "./CountdownNumber";
-
+/**
+ * Parses timestamp for countdown 
+ * @param {number} num - number fed from timeLeft obj
+ * @returns {number} 
+ */
 const getDigits = (num) => {
   var digits = [];
   digits.push(num % 10);

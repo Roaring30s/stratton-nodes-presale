@@ -34,7 +34,7 @@ export default function PresaleInfo({ presaleTarget }) {
             className="hover:transition-all duration-300 ease-in-out bg-lime border-lime hover:bg-white text-landing-black hover:text-primary font-bold py-3 px-7 border border-primary hover:border-transparent rounded-lg"
             target="_blank"
             rel="noreferrer"
-            href="https://discord.gg/strattonnodes"
+            href="#"
           >
             Join Discord
           </a>
@@ -43,7 +43,7 @@ export default function PresaleInfo({ presaleTarget }) {
             className="hover:transition-all duration-300 ease-in-out bg-transparent hover:bg-secondary text-lime font-semibold hover:text-white py-3 px-7 ml-6 border-lime border-2 hover:border-transparent rounded-lg"
             target="_blank"
             rel="noreferrer"
-            href="https://stratton-nodes.gitbook.io/main/"
+            href="#"
           >
             Learn More
           </a>
@@ -73,7 +73,6 @@ export default function PresaleInfo({ presaleTarget }) {
           <p className="text-white text-4xl mt-15">
             {(available && dollarfy(totalRaisedDAI)) || "-"}
           </p>
-
         </div>
       </div>
     </div>

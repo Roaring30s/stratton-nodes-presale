@@ -9,7 +9,6 @@ import { useMetamask } from "../util/metamask";
 import PresalePurchaseMaxAllocation from "./PresalePurchaseMaxAllocation";
 import { toHex } from "../util";
 import presaleInterface from '../core/contracts/presale.json';
-import Alertbox from "./Alertbox";
 
 const SliderMin = 10;
 
@@ -84,8 +83,7 @@ export default function PresalePurchase({
     daiAddress: DAI_ADDRESS
   });
 
-  const { status, disconnect, chainId } = useMetamask();
-
+  const { disconnect, chainId } = useMetamask();
   const [purchaseAmount, setPurchaseAmount] = useState(10);
   const [showError, setShowError] = useState(true);
   const onPurchaseAmountChanged = (event, value, activeThumb) => {
@@ -108,9 +106,6 @@ export default function PresalePurchase({
     disconnect();
   }
   const desiredChainId = toHex(CHAIN.chainId);
-
-
-
   /*
   *TEMPORARILY DISABLED FOR PORTFOLIO VIEWING
   *Note: userRemainingAllocation has been swapped for 50 for non-wallet users to view
@@ -127,8 +122,6 @@ export default function PresalePurchase({
       }
     }
   */
-  console.log("Presale Started: ", presaleStarted);
-  console.log("Presale End: ", presaleEnded);
   if (!presaleStarted && !presaleEnded && (50 > 0)) {
     return (
       <div className="w-[36rem] h-[37rem] mx-auto mt-8  border-2 border-white/30 rounded-[24px] bg-opacity-30 bg-presale-purple p-5 text-white">

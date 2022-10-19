@@ -17,7 +17,6 @@ export const MetamaskProvider = (props) => {
     let isMetamaskAvailable = false;
 
     const initialize = async () => {
-        //const isMetamaskAvailable = !!window.ethereum && window.ethereum.isMetaMask;
         if (!isMetamaskAvailable) {
             setStatus("unavailable");
             return;
@@ -45,6 +44,10 @@ export const MetamaskProvider = (props) => {
         }
     };
 
+    /**
+     * Connect to Metamask window provider and retrieves account info.
+     * @returns {object} - account information on wallet
+     */
     const connectAndGetAccounts = async () => {
         if (!!window.ethereum && window.ethereum.isMetaMask) {
             setStatus("connecting");
@@ -70,6 +73,9 @@ export const MetamaskProvider = (props) => {
         }
     };
 
+    /**
+     * Retrieves AVAX balance in wallet.
+     */
     const getUserBalance = async () => {
         if (!!window.ethereum && window.ethereum.isMetaMask) {
             const balance = await window.ethereum.request({ method: 'eth_getBalance', params: [account, 'latest'] });
@@ -77,6 +83,10 @@ export const MetamaskProvider = (props) => {
         }
     }
 
+    /**
+     * Change network to Mainnet or Fuji
+     * @param {string} networkName - network name to host EOA
+     */
     const changeNetwork = async (networkName) => {
         if (!!window.ethereum && window.ethereum.isMetaMask) {
             try {
@@ -158,7 +168,9 @@ export const MetamaskProvider = (props) => {
         }
     }, [isConnected, account]);
 
-
+    /**
+     * Connect wallet employing connectAndGetAccounts
+     */
     const connect = useCallback(() => {
         if (!!window.ethereum && window.ethereum.isMetaMask) {
             if (!isAvailable) {
@@ -174,6 +186,9 @@ export const MetamaskProvider = (props) => {
         }
     }, [isAvailable]);
 
+    /**
+     * Disconnect wallet employing connectAndGetAccounts
+     */
     const disconnect = useCallback(() => {
         if (!!window.ethereum && window.ethereum.isMetaMask) {
             setStatus('notConnected');
@@ -185,6 +200,14 @@ export const MetamaskProvider = (props) => {
         }
     }, []);
 
+    /**
+     * Add a token to an EOA wallet
+     * @param {string} address - Contract address of token
+     * @param {string} symbol- Ticker symbol of token
+     * @param {number} decimals - decimal places for token
+     * @param {string} image - url for token symbol image
+     * @returns {callback} - adding token to EOA
+     */
     const addToken = useCallback(({ address, symbol, decimals, image }) => {
         if (!!window.ethereum && window.ethereum.isMetaMask) {
             return ethereum.request({
