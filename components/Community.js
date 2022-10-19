@@ -67,7 +67,7 @@ export default function Community() {
         </div>
         <div className="relative -mt-community">
           <Image
-            src="static/img/stratton_partnership.svg"
+            src="/static/img/stratton_partnership.svg"
             alt="Stratton x Avalanche"
             width="450"
             height="225"
