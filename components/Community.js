@@ -2,7 +2,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import DiscordIcon from "./DiscordIcon";
 import DocsIcon from "./DocsIcon";
-import Image from 'next/image'
+import Image from 'next/image';
 //"linear-gradient(to right, #241070, transparent, #200464), url('/logo-only.svg')"
 //bg-black w-full bg-[url('/logo-only.svg')]
 export default function Community() {
