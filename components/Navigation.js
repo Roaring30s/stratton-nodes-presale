@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "./Image";
+import Image from 'next/image';
 import { useMetamask } from "../util/metamask";
 import { Network } from "./Network";
 import { PBWD_TOKEN_ADDRESS, PBWD_TOKEN_SYMBOL, PBWD_TOKEN_DECIMALS, PBWD_TOKEN_IMAGE, PRESALE_ADDRESS, DAI_ADDRESS } from '../core/constants';
